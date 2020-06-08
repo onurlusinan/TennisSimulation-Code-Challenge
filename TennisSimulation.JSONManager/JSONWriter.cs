@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Newtonsoft.Json;
 using TennisSimulation.PlayerBase;
@@ -21,19 +19,19 @@ namespace TennisSimulation.JSONManager
             // sort the list based on gained experience, if both equal sort by initial experience
             List<Player> SortedList = players.OrderByDescending(p => p.Experience).ThenByDescending(p => p.init_experience).ToList(); 
 
-            foreach (Player p in SortedList)
+            foreach (Player p in SortedList) // create a Result object for each player
             {
                 Result result = new Result(order, p.Id, p.Experience - p.init_experience, p.Experience);
                 SortedResultsList.Add(result);
                 order++;
             }
 
-            RootObjectWrite rootObjectWrite = new RootObjectWrite(SortedResultsList);
-
+            RootObjectWrite rootObjectWrite = new RootObjectWrite(SortedResultsList); // Serialization
             string OutputJson = JsonConvert.SerializeObject(rootObjectWrite, Formatting.Indented);
+
             string filePath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\"));
-            File.WriteAllText(filePath + @"\\output.json", OutputJson);
-            Console.WriteLine(OutputJson);
+            File.WriteAllText(filePath + @"\\output.json", OutputJson); // Write to file
+            // Console.WriteLine(OutputJson); // for testing purposes, delete later
         }
     }
 
@@ -47,8 +45,6 @@ namespace TennisSimulation.JSONManager
             Results = results;
         }
     }
-
-
 
     public class Result
     {

@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.Contracts;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 using TennisSimulation.JSONManager;
 using TennisSimulation.PlayerBase;
@@ -52,8 +47,9 @@ namespace TennisSimulation
             #endregion
 
             #region Serialization to Json
-            // NEXT: JSON output
+
             JSONWriter writer = new JSONWriter(allPlayers);
+
             #endregion
         }
     }
