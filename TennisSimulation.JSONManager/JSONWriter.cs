@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
@@ -11,10 +10,12 @@ namespace TennisSimulation.JSONManager
     public class JSONWriter
     {
         List<Result> SortedResultsList = new List<Result>();
+        private readonly string FilePath;
 
-        public JSONWriter(List<Player> players)
+        public JSONWriter(List<Player> players, string filePath)
         {
             int order = 1;
+            FilePath = filePath;
 
             // sort the list based on gained experience, if both equal sort by initial experience
             List<Player> SortedList = players.OrderByDescending(p => p.Experience).ThenByDescending(p => p.init_experience).ToList(); 
@@ -29,9 +30,7 @@ namespace TennisSimulation.JSONManager
             RootObjectWrite rootObjectWrite = new RootObjectWrite(SortedResultsList); // Serialization
             string OutputJson = JsonConvert.SerializeObject(rootObjectWrite, Formatting.Indented);
 
-            string filePath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\"));
             File.WriteAllText(filePath + @"\\output.json", OutputJson); // Write to file
-            // Console.WriteLine(OutputJson); // for testing purposes, delete later
         }
     }
 

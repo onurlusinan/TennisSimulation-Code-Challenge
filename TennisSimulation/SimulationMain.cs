@@ -10,14 +10,15 @@ namespace TennisSimulation
 {
     class SimulationMain
     {
-        public static List<Player> allPlayers;
-        public static List<Tournament> allTournaments;
+        private static List<Player> allPlayers;
+        private static List<Tournament> allTournaments;
 
         static void Main(string[] args)
-        {
+        {   
+            string filePath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\")); // Project filepath for input and output
+
             #region Read Input File
 
-            string filePath = Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\..\\"));
             JSONReader reader = new JSONReader(filePath + @"\\input.json"); //reading the input.json file 
 
             #endregion
@@ -48,7 +49,7 @@ namespace TennisSimulation
 
             #region Serialization to Json
 
-            JSONWriter writer = new JSONWriter(allPlayers);
+            JSONWriter writer = new JSONWriter(allPlayers, filePath); // serialize the results to Json using the filepath
 
             #endregion
         }

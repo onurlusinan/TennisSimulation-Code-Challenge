@@ -24,7 +24,7 @@ namespace TennisSimulation.TournamentBase
             }
         }
 
-        public void GetCombinations(List<Player> AllPlayers) // create all distinct combinations of players
+        private void GetCombinations(List<Player> AllPlayers) // create all distinct combinations of players
         {
             for (int i = 0; i < AllPlayers.Count; i++) // The number of matches has to be (# of Players) * (# of Players -1) / 2
             {

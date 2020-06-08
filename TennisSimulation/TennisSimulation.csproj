@@ -35,6 +35,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="input.json" />
+    <None Include="input2.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\TennisSimulation.JSONManager\TennisSimulation.JSONManager.csproj">

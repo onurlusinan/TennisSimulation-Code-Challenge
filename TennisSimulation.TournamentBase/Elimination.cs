@@ -15,7 +15,7 @@ namespace TennisSimulation.TournamentBase
             PlayElimination(players);
         }
 
-        public Player PlayElimination(List<Player> players) // returns the winning player
+        private Player PlayElimination(List<Player> players) // returns the winning player
         {
             EliminationList = CreatePlayerDuos(players); // Create the duos
             tempList.Clear(); // clear the temp list
@@ -36,7 +36,7 @@ namespace TennisSimulation.TournamentBase
             }
         }
 
-        public List<Tuple<Player, Player>> CreatePlayerDuos(List<Player> players)
+        private List<Tuple<Player, Player>> CreatePlayerDuos(List<Player> players)
         {
             List<Tuple<Player, Player>> eliminationList = new List<Tuple<Player, Player>>();
             for (int i = 0; i<players.Count; i += 2) // Normally, this does not support # of players that is not 2^n. 

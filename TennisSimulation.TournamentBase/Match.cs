@@ -11,7 +11,8 @@ namespace TennisSimulation.TournamentBase
         private readonly Tournament Tournament;
         private readonly string surface;
 
-        Random rnd = new Random(); // for the probability comparison
+        private static Random rnd = new Random(); // for the probability comparison
+        private double randomDecimal = rnd.NextDouble(); // Get decimal value between 0 and 1, the factor of chance
 
         public Match(Player player1, Player player2, Tournament tour)
         {
@@ -58,8 +59,6 @@ namespace TennisSimulation.TournamentBase
 
             Probability1 = Score1 / (Score1 + Score2); // Calculating the probability
 
-            var randomDecimal = rnd.NextDouble(); // Get decimal value between 0 and 1, the factor of chance
-
             if (Probability1 < randomDecimal) // Winner is Player2, since the random decimal is in Player2's range of probabilities
             {
                 CalculateExperience(Player2, Player1);
@@ -88,8 +87,6 @@ namespace TennisSimulation.TournamentBase
             {
                 Winner.GainExperience(10);
                 Loser.GainExperience(1);
-
-                //Console.WriteLine("Player " + Winner.Id + " wins league " + Tournament.Id);
             }
         }
     }
