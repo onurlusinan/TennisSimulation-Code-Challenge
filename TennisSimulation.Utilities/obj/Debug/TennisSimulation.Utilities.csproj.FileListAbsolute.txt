@@ -4,3 +4,9 @@ D:\Unity Works\Job Application Demos\TennisSimulation - Peak\TennisSimulation.Ut
 D:\Unity Works\Job Application Demos\TennisSimulation - Peak\TennisSimulation.Utilities\obj\Debug\TennisSimulation.Utilities.csproj.CoreCompileInputs.cache
 D:\Unity Works\Job Application Demos\TennisSimulation - Peak\TennisSimulation.Utilities\obj\Debug\TennisSimulation.Utilities.dll
 D:\Unity Works\Job Application Demos\TennisSimulation - Peak\TennisSimulation.Utilities\obj\Debug\TennisSimulation.Utilities.pdb
+D:\Unity Works\Job Application Demos\TennisSimulation - Peak v2\TennisSimulation.Utilities\bin\Debug\TennisSimulation.Utilities.dll
+D:\Unity Works\Job Application Demos\TennisSimulation - Peak v2\TennisSimulation.Utilities\bin\Debug\TennisSimulation.Utilities.pdb
+D:\Unity Works\Job Application Demos\TennisSimulation - Peak v2\TennisSimulation.Utilities\obj\Debug\TennisSimulation.Utilities.csprojAssemblyReference.cache
+D:\Unity Works\Job Application Demos\TennisSimulation - Peak v2\TennisSimulation.Utilities\obj\Debug\TennisSimulation.Utilities.csproj.CoreCompileInputs.cache
+D:\Unity Works\Job Application Demos\TennisSimulation - Peak v2\TennisSimulation.Utilities\obj\Debug\TennisSimulation.Utilities.dll
+D:\Unity Works\Job Application Demos\TennisSimulation - Peak v2\TennisSimulation.Utilities\obj\Debug\TennisSimulation.Utilities.pdb

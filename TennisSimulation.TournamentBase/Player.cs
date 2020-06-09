@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace TennisSimulation.PlayerBase
+namespace TennisSimulation.TournamentBase
 {
     public class Player
     {
@@ -13,7 +13,7 @@ namespace TennisSimulation.PlayerBase
         [JsonProperty("experience")]
         public int Experience; // total experience value
 
-        public int init_experience; // initial experience value
+        public int InitExperience; // initial experience value
 
         public Skills Skills; // [clay, grass, hard] :: each value between 1...10
 
@@ -22,7 +22,7 @@ namespace TennisSimulation.PlayerBase
             this.Id = id;
             this.Hand = hand;
             this.Experience = experience;
-            this.init_experience = experience;
+            this.InitExperience = experience;
             this.Skills = skills;
         }
 

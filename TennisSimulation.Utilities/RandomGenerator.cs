@@ -8,24 +8,13 @@ namespace TennisSimulation.Utilities
     {
         // This is a distinct random generator between 0 and a chosen max value. 
         // We use this during the random league matches.
+        // Based on the Fisher-Yates algorithm, since the number of players is 2^n.
+        // Thus, number of the random values we must generate can be big values. Number of randoms: (2^n) * (2^n -1) / 2
 
         static Random random = new Random();
 
-        // Note, max is exclusive here!
         public static List<int> GenerateRandom(int count, int min, int max)
         {
-
-            //  initialize set S to empty
-            //  for J := N-M + 1 to N do
-            //    T := RandInt(1, J)
-            //    if T is not in S then
-            //      insert T in S
-            //    else
-            //      insert J in S
-            //
-            // adapted for C# which does not have an inclusive Next(..)
-            // and to make it from configurable range not just 1.
-
             if (max <= min || count < 0 ||
                     // max - min > 0 required to avoid overflow
                     (count > max - min && max - min > 0))
@@ -68,7 +57,7 @@ namespace TennisSimulation.Utilities
             return result;
         }
 
-        public static List<int> GenerateRandom(int count, int maxValue)
+        public static List<int> GenerateRandomList(int count, int maxValue)
         {
             return GenerateRandom(count, 0, maxValue);
         }

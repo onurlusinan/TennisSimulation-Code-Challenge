@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TennisSimulation", "TennisS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TennisSimulation.JSONManager", "..\TennisSimulation.JSONManager\TennisSimulation.JSONManager.csproj", "{277ECC5F-8F34-49E4-86FB-09B866EEC576}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TennisSimulation.PlayerBase", "..\TennisSimulation.PlayerBase\TennisSimulation.PlayerBase.csproj", "{1E0F6A21-5417-4245-9D38-352AAB1A8318}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TennisSimulation.TournamentBase", "..\TennisSimulation.TournamentBase\TennisSimulation.TournamentBase.csproj", "{AC946646-BDA5-4766-85AB-3FAD7B44B00F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TennisSimulation.Utilities", "..\TennisSimulation.Utilities\TennisSimulation.Utilities.csproj", "{21874FDF-2432-491A-8227-E05332A92072}"
@@ -27,10 +25,6 @@ Global
 		{277ECC5F-8F34-49E4-86FB-09B866EEC576}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{277ECC5F-8F34-49E4-86FB-09B866EEC576}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{277ECC5F-8F34-49E4-86FB-09B866EEC576}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1E0F6A21-5417-4245-9D38-352AAB1A8318}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E0F6A21-5417-4245-9D38-352AAB1A8318}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E0F6A21-5417-4245-9D38-352AAB1A8318}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1E0F6A21-5417-4245-9D38-352AAB1A8318}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AC946646-BDA5-4766-85AB-3FAD7B44B00F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AC946646-BDA5-4766-85AB-3FAD7B44B00F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC946646-BDA5-4766-85AB-3FAD7B44B00F}.Release|Any CPU.ActiveCfg = Release|Any CPU

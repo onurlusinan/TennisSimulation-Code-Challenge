@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 
 using Newtonsoft.Json;
-using TennisSimulation.PlayerBase;
 
 namespace TennisSimulation.TournamentBase
 {
@@ -16,7 +15,7 @@ namespace TennisSimulation.TournamentBase
         [JsonProperty("type")]
         public string Type { get; set; }
 
-        public List<Player> Players; // The list of players entering the tournament taken from input.json
+        private List<Player> Players; // The list of players entering the tournament taken from input.json
 
         public Tournament(int id, string surface, string type, List<Player> players)
         {

@@ -1,7 +1,5 @@
 ﻿using System;
 
-using TennisSimulation.PlayerBase;
-
 namespace TennisSimulation.TournamentBase
 {
     public class Match
@@ -12,7 +10,7 @@ namespace TennisSimulation.TournamentBase
         private readonly string surface;
 
         private static Random rnd = new Random(); // for the probability comparison
-        private double randomDecimal = rnd.NextDouble(); // Get decimal value between 0 and 1, the factor of chance
+        private readonly double RandomDecimal = rnd.NextDouble(); // Get decimal value between 0 and 1, the factor of chance
 
         public Match(Player player1, Player player2, Tournament tour)
         {
@@ -59,12 +57,12 @@ namespace TennisSimulation.TournamentBase
 
             Probability1 = Score1 / (Score1 + Score2); // Calculating the probability
 
-            if (Probability1 < randomDecimal) // Winner is Player2, since the random decimal is in Player2's range of probabilities
+            if (Probability1 < RandomDecimal) // Winner is Player2, since the random decimal is in Player2's range of probabilities
             {
                 CalculateExperience(Player2, Player1);
                 return Player2;
             }
-            else if(Probability1 > randomDecimal)
+            else if(Probability1 > RandomDecimal)
             {
                 CalculateExperience(Player1, Player2);
                 return Player1;

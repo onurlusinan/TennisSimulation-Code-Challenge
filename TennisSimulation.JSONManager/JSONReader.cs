@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 
 using Newtonsoft.Json;
-using TennisSimulation.PlayerBase;
 using TennisSimulation.TournamentBase;
 
 namespace TennisSimulation.JSONManager

@@ -52,10 +52,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TennisSimulation.PlayerBase\TennisSimulation.PlayerBase.csproj">
-      <Project>{1e0f6a21-5417-4245-9d38-352aab1a8318}</Project>
-      <Name>TennisSimulation.PlayerBase</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TennisSimulation.TournamentBase\TennisSimulation.TournamentBase.csproj">
       <Project>{ac946646-bda5-4766-85ab-3fad7b44b00f}</Project>
       <Name>TennisSimulation.TournamentBase</Name>

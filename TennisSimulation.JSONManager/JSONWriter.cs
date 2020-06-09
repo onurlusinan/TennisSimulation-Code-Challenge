@@ -1,45 +1,28 @@
 ﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 using Newtonsoft.Json;
-using TennisSimulation.PlayerBase;
+using TennisSimulation.TournamentBase;
 
 namespace TennisSimulation.JSONManager
 {
     public class JSONWriter
     {
-        List<Result> SortedResultsList = new List<Result>();
-        private readonly string FilePath;
-
-        public JSONWriter(List<Player> players, string filePath)
+        public JSONWriter(List<Result> ResultsList, string filePath)
         {
-            int order = 1;
-            FilePath = filePath;
-
-            // sort the list based on gained experience, if both equal sort by initial experience
-            List<Player> SortedList = players.OrderByDescending(p => p.Experience).ThenByDescending(p => p.init_experience).ToList(); 
-
-            foreach (Player p in SortedList) // create a Result object for each player
-            {
-                Result result = new Result(order, p.Id, p.Experience - p.init_experience, p.Experience);
-                SortedResultsList.Add(result);
-                order++;
-            }
-
-            RootObjectWrite rootObjectWrite = new RootObjectWrite(SortedResultsList); // Serialization
-            string OutputJson = JsonConvert.SerializeObject(rootObjectWrite, Formatting.Indented);
+            RootObjectResult rootObjectWrite = new RootObjectResult(ResultsList); 
+            string OutputJson = JsonConvert.SerializeObject(rootObjectWrite, Formatting.Indented); // Serialization
 
             File.WriteAllText(filePath + @"\\output.json", OutputJson); // Write to file
         }
     }
 
-    public class RootObjectWrite
+    public class RootObjectResult
     {
         [JsonProperty("results")]
         public List<Result> Results { get; set; }
 
-        public RootObjectWrite(List<Result> results)
+        public RootObjectResult(List<Result> results)
         {
             Results = results;
         }

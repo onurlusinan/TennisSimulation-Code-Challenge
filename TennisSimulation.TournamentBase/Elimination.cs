@@ -1,49 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
 
-using TennisSimulation.PlayerBase;
-
 namespace TennisSimulation.TournamentBase
 {
     public class Elimination : Tournament
     {
-        private List<Tuple<Player, Player>> EliminationList = new List<Tuple<Player, Player>>();
+        private List<Match> MatchList = new List<Match>();
         private List<Player> tempList = new List<Player>(); // create a temp list for the recursive model
 
         public Elimination(int id, string surface, string type, List<Player> players) : base(id, surface, type, players)
         {
-            PlayElimination(players);
+            Play(players);
         }
 
-        private Player PlayElimination(List<Player> players) // returns the winning player
+        private void Play(List<Player> players) 
         {
-            EliminationList = CreatePlayerDuos(players); // Create the duos
+            MatchList = CreatePlayerMatches(players); // Create the duos
             tempList.Clear(); // clear the temp list
 
-            foreach (Tuple<Player, Player> PlayerDuo in EliminationList) 
+            foreach (var Match in MatchList) 
             {
-                Match EliminationMatch = new Match(PlayerDuo.Item1, PlayerDuo.Item2, this);
-                tempList.Add(EliminationMatch.PlayMatch());
+                tempList.Add(Match.PlayMatch());
             }
 
-            if (tempList.Count == 1)
+            if (tempList.Count == 1) // Winner!     
             {
-                return tempList[0]; // Winner!      
+                // Do nothing, only winner left
             }
             else 
             {
-                return PlayElimination(tempList); // recursively update eliminationList
+                Play(tempList); // recursively update eliminationList
             }
         }
 
-        private List<Tuple<Player, Player>> CreatePlayerDuos(List<Player> players)
+        private List<Match> CreatePlayerMatches(List<Player> players)
         {
-            List<Tuple<Player, Player>> eliminationList = new List<Tuple<Player, Player>>();
+            var MatchList = new List<Match>();
             for (int i = 0; i<players.Count; i += 2) // Normally, this does not support # of players that is not 2^n. 
             {
-                eliminationList.Add(Tuple.Create(players[i], players[i + 1])); // However according to the case document, we can ignore this.
+                var match = new Match(players[i], players[i + 1], this);
+                MatchList.Add(match); // However according to the case document, we can ignore this.
             }
-            return eliminationList;
+            return MatchList;
         }
     }
 }

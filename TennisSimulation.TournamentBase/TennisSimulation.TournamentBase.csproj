@@ -47,14 +47,11 @@
     <Compile Include="Elimination.cs" />
     <Compile Include="League.cs" />
     <Compile Include="Match.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tournament.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\TennisSimulation.PlayerBase\TennisSimulation.PlayerBase.csproj">
-      <Project>{1e0f6a21-5417-4245-9d38-352aab1a8318}</Project>
-      <Name>TennisSimulation.PlayerBase</Name>
-    </ProjectReference>
     <ProjectReference Include="..\TennisSimulation.Utilities\TennisSimulation.Utilities.csproj">
       <Project>{21874fdf-2432-491a-8227-e05332a92072}</Project>
       <Name>TennisSimulation.Utilities</Name>

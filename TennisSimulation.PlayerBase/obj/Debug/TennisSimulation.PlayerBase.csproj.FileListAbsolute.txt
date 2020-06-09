@@ -1,9 +1,0 @@
-D:\Unity Works\Job Application Demos\TennisSimulation - Peak\TennisSimulation.PlayerBase\bin\Debug\TennisSimulation.PlayerBase.dll
-D:\Unity Works\Job Application Demos\TennisSimulation - Peak\TennisSimulation.PlayerBase\bin\Debug\TennisSimulation.PlayerBase.pdb
-D:\Unity Works\Job Application Demos\TennisSimulation - Peak\TennisSimulation.PlayerBase\bin\Debug\Newtonsoft.Json.dll
-D:\Unity Works\Job Application Demos\TennisSimulation - Peak\TennisSimulation.PlayerBase\bin\Debug\Newtonsoft.Json.xml
-D:\Unity Works\Job Application Demos\TennisSimulation - Peak\TennisSimulation.PlayerBase\obj\Debug\TennisSimulation.PlayerBase.csprojAssemblyReference.cache
-D:\Unity Works\Job Application Demos\TennisSimulation - Peak\TennisSimulation.PlayerBase\obj\Debug\TennisSimulation.PlayerBase.csproj.CoreCompileInputs.cache
-D:\Unity Works\Job Application Demos\TennisSimulation - Peak\TennisSimulation.PlayerBase\obj\Debug\TennisSimulation.PlayerBase.csproj.CopyComplete
-D:\Unity Works\Job Application Demos\TennisSimulation - Peak\TennisSimulation.PlayerBase\obj\Debug\TennisSimulation.PlayerBase.dll
-D:\Unity Works\Job Application Demos\TennisSimulation - Peak\TennisSimulation.PlayerBase\obj\Debug\TennisSimulation.PlayerBase.pdb
