@@ -15,7 +15,7 @@ namespace TennisSimulation.TournamentBase
 
         private void Play(List<Player> players) 
         {
-            MatchList = CreatePlayerMatches(players); // Create the duos
+            MatchList = CreatePlayerMatches(players); // Create the first matches
             tempList.Clear(); // clear the temp list
 
             foreach (var Match in MatchList) 
@@ -37,9 +37,9 @@ namespace TennisSimulation.TournamentBase
         {
             var MatchList = new List<Match>();
             for (int i = 0; i<players.Count; i += 2) // Normally, this does not support # of players that is not 2^n. 
-            {
+            {                                               // However according to the case document, we can ignore this.
                 var match = new Match(players[i], players[i + 1], this);
-                MatchList.Add(match); // However according to the case document, we can ignore this.
+                MatchList.Add(match); 
             }
             return MatchList;
         }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 
 using Newtonsoft.Json;
@@ -11,33 +10,23 @@ namespace TennisSimulation.JSONManager
     {
         private string JSONstr;
 
+        public List<Player> allPlayers = new List<Player>();
+        public List<Tournament> allTournaments = new List<Tournament>();
+
         public JSONReader(string Input)
         {
-            this.JSONstr = File.ReadAllText(Input); // What if Input is null
+            JSONstr = File.ReadAllText(Input); // What if Input is null
         }
 
-        public Tuple<List<Player>, List<Tournament>> Deserialize()
+        public void Deserialize()
         {
-            List<Player> allPlayers = new List<Player>();
-            List<Tournament> allTournaments = new List<Tournament>();
-
-            var rootObj = JsonConvert.DeserializeObject<RootObject>(JSONstr);
-          
-            foreach (Player p in rootObj.Players)
-            {
-                allPlayers.Add(p);
-            }
-
-            foreach (Tournament t in rootObj.Tournaments)
-            {
-                allTournaments.Add(t);
-            }
-
-            return Tuple.Create(allPlayers, allTournaments);
+            InputInfo inputInfo = JsonConvert.DeserializeObject<InputInfo>(JSONstr);
+            allPlayers = inputInfo.Players;
+            allTournaments = inputInfo.Tournaments;
         }
     }
 
-    public class RootObject
+    public class InputInfo
     {
         public List<Player> Players { get; set; }
 

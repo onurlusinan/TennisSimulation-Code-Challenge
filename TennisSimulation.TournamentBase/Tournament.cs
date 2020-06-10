@@ -15,7 +15,7 @@ namespace TennisSimulation.TournamentBase
         [JsonProperty("type")]
         public string Type { get; set; }
 
-        private List<Player> Players; // The list of players entering the tournament taken from input.json
+        private readonly List<Player> Players; // The list of players entering the tournament taken from input.json
 
         public Tournament(int id, string surface, string type, List<Player> players)
         {
@@ -23,6 +23,28 @@ namespace TennisSimulation.TournamentBase
             Surface = surface;
             Type = type;
             Players = players;
-        }   
+        }
+
+        public bool isElimination()
+        {
+            return Type == "elimination";
+        }
+
+        public bool isLeague()
+        {
+            return Type == "league";
+        }
+        public bool isClay()
+        {
+            return Surface == "clay";
+        }
+        public bool isGrass()
+        {
+            return Surface == "grass";
+        }
+        public bool isHard()
+        {
+            return Surface == "hard";
+        }
     }
 }

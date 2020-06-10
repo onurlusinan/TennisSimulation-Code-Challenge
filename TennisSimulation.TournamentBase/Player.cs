@@ -30,6 +30,11 @@ namespace TennisSimulation.TournamentBase
         {
             this.Experience += XP;
         }
+
+        public bool isLeftHanded()
+        {
+            return Hand == "left";
+        }
     }
 
     public class Skills

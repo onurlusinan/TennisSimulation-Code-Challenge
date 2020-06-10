@@ -7,9 +7,8 @@ namespace TennisSimulation.TournamentBase
         private readonly Player Player1;
         private readonly Player Player2;
         private readonly Tournament Tournament;
-        private readonly string surface;
 
-        private static Random rnd = new Random(); // for the probability comparison
+        private static readonly Random rnd = new Random(); // for the probability comparison
         private readonly double RandomDecimal = rnd.NextDouble(); // Get decimal value between 0 and 1, the factor of chance
 
         public Match(Player player1, Player player2, Tournament tour)
@@ -17,10 +16,9 @@ namespace TennisSimulation.TournamentBase
             Player1 = player1;
             Player2 = player2;
             Tournament = tour;
-            surface = tour.Surface;
         }
 
-        public Player PlayMatch() // Play the match according to the score rules
+        public Player PlayMatch() // Play the match according to the score rules, returns winner
         {
             int Score1 = 0; 
             int Score2 = 0;
@@ -31,25 +29,25 @@ namespace TennisSimulation.TournamentBase
             Score2++;
 
             // Left hand +2 score
-            if (Player1.Hand == "left") { Score1 += 2; }
-            if (Player2.Hand == "left") { Score2 += 2; }
+            if (Player1.isLeftHanded()) { Score1 += 2; }
+            if (Player2.isLeftHanded()) { Score2 += 2; }
 
             // Total xperience more than opponent +3 score
             if (Player1.Experience > Player2.Experience) { Score1 += 3; }
             if (Player1.Experience < Player2.Experience) { Score2 += 3; }
 
             // surface skill more +4 score
-            if (surface == "clay")
+            if (Tournament.isClay())
             { 
                 if(Player1.Skills.Clay > Player2.Skills.Clay) { Score1 += 4; }
                 if(Player1.Skills.Clay < Player2.Skills.Clay) { Score2 += 4; }
             }
-            else if (surface == "grass")
+            else if (Tournament.isGrass())
             {
                 if (Player1.Skills.Grass > Player2.Skills.Grass) { Score1 += 4; }
                 if (Player1.Skills.Grass < Player2.Skills.Grass) { Score2 += 4; }
             }
-            else if (surface == "hard")
+            else if (Tournament.isHard())
             {
                 if (Player1.Skills.Hard > Player2.Skills.Hard) { Score1 += 4; }
                 if (Player1.Skills.Hard < Player2.Skills.Hard) { Score2 += 4; }
@@ -76,12 +74,12 @@ namespace TennisSimulation.TournamentBase
 
         public void CalculateExperience(Player Winner, Player Loser) 
         {
-            if (Tournament.Type == "elimination")
+            if (Tournament.isElimination())
             {
                 Winner.GainExperience(20);
                 Loser.GainExperience(10);
             }
-            else if (Tournament.Type == "league")
+            else if (Tournament.isLeague())
             {
                 Winner.GainExperience(10);
                 Loser.GainExperience(1);

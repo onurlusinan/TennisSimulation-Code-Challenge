@@ -12,12 +12,17 @@ namespace TennisSimulation.TournamentBase
 
         public League(int id, string surface, string type, List<Player> players) : base(id, surface, type, players)
         {
+            Play(players);
+        }
+
+        private void Play(List<Player> players)
+        {
             GetCombinations(players);
             DistinctRandomList = RandomGenerator.GenerateRandomList(MatchList.Count, MatchList.Count);
 
             for (int i = 0; i < MatchList.Count; i++)
             { 
-                int rand = DistinctRandomList[i]; // get distinct random numbers for the index of MatchesList
+                int rand = DistinctRandomList[i]; // get distinct random numbers for the indices of MatchList
                 MatchList[rand].PlayMatch();
             }
         }
