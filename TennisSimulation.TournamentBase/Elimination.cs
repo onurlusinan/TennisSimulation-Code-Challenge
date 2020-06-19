@@ -8,12 +8,11 @@ namespace TennisSimulation.TournamentBase
         private List<Match> MatchList = new List<Match>();
         private List<Player> tempList = new List<Player>(); // create a temp list for the recursive model
 
-        public Elimination(int id, string surface, string type, List<Player> players) : base(id, surface, type, players)
-        {
-            Play(players);
+        public Elimination(int id, string surface, string type) : base(id, surface, type)
+        { 
         }
 
-        private void Play(List<Player> players) 
+        public override void Play(List<Player> players) 
         {
             MatchList = CreatePlayerMatches(players); // Create the first matches
             tempList.Clear(); // clear the temp list

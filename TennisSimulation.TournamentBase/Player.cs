@@ -13,22 +13,28 @@ namespace TennisSimulation.TournamentBase
         [JsonProperty("experience")]
         public int Experience; // total experience value
 
-        public int InitExperience; // initial experience value
+        public int InitExperience; // initial and gained experience values
+        public int GainedExperience;
 
         public Skills Skills; // [clay, grass, hard] :: each value between 1...10
 
         public Player(int id, string hand, int experience, Skills skills)
         {
-            this.Id = id;
-            this.Hand = hand;
-            this.Experience = experience;
-            this.InitExperience = experience;
-            this.Skills = skills;
+            Id = id;
+            Hand = hand;
+            Experience = experience;
+            InitExperience = experience;
+            Skills = skills;
         }
 
         public void GainExperience(int XP)
         {
-            this.Experience += XP;
+            Experience += XP;
+        }
+
+        public int GetGainedExperience()
+        {
+            return Experience - InitExperience;
         }
 
         public bool isLeftHanded()

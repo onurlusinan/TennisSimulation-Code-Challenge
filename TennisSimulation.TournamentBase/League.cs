@@ -10,12 +10,11 @@ namespace TennisSimulation.TournamentBase
         private List<Match> MatchList = new List<Match>();
         private List<int> DistinctRandomList = new List<int>();
 
-        public League(int id, string surface, string type, List<Player> players) : base(id, surface, type, players)
+        public League(int id, string surface, string type) : base(id, surface, type)
         {
-            Play(players);
         }
 
-        private void Play(List<Player> players)
+        public override void Play(List<Player> players)
         {
             GetCombinations(players);
             DistinctRandomList = RandomGenerator.GenerateRandomList(MatchList.Count, MatchList.Count);

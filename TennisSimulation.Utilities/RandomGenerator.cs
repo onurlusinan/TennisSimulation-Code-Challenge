@@ -26,7 +26,7 @@ namespace TennisSimulation.Utilities
 
             for (int top = max - count; top < max; top++)
             {
-                if (!candidates.Add(random.Next(min, top + 1)))
+                if (!candidates.Add(random.Next(min, top + 1))) // if element is already present
                 {
                     candidates.Add(top);
                 }

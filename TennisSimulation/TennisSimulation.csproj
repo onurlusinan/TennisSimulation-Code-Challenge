@@ -35,7 +35,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="input.json" />
-    <None Include="input2.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

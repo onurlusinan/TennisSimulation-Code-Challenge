@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace TennisSimulation.TournamentBase
 {
-    public class Tournament
+    public abstract class Tournament
     {
         [JsonProperty("id")]
         public int Id { get; set; }
@@ -15,15 +15,14 @@ namespace TennisSimulation.TournamentBase
         [JsonProperty("type")]
         public string Type { get; set; }
 
-        private readonly List<Player> Players; // The list of players entering the tournament taken from input.json
-
-        public Tournament(int id, string surface, string type, List<Player> players)
+        public Tournament(int id, string surface, string type)
         {
             Id = id;
             Surface = surface;
             Type = type;
-            Players = players;
         }
+
+        public abstract void Play(List<Player> players);
 
         public bool isElimination()
         {

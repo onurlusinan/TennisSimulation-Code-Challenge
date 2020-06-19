@@ -37,26 +37,28 @@ namespace TennisSimulation
         {
             foreach (Tournament t in AllTournaments) // Play all Tournaments based on their type
             {
+                Tournament tournament = null;
                 if (t.isElimination())
                 {
-                    Elimination elimination = new Elimination(t.Id, t.Surface, t.Type, AllPlayers);
+                    tournament = new Elimination(t.Id, t.Surface, t.Type);
                 }
                 else if (t.isLeague())
                 {
-                    League league = new League(t.Id, t.Surface, t.Type, AllPlayers);
+                    tournament = new League(t.Id, t.Surface, t.Type);
                 }
+                tournament.Play(AllPlayers);
             }
         }
 
         private static void SortPlayerList(List<Player> players)
         {
             // sort the list based on gained experience, if equal sort by initial experience
-            SortedPlayerList = players.OrderByDescending(p => p.Experience).ThenByDescending(p => p.InitExperience).ToList();
+            SortedPlayerList = players.OrderByDescending(p => p.GetGainedExperience()).ThenByDescending(p => p.InitExperience).ToList();
 
             int order = 1; 
             foreach (Player p in SortedPlayerList) // create a Result object for each player
             {
-                Result result = new Result(order, p.Id, p.Experience - p.InitExperience, p.Experience);
+                Result result = new Result(order, p.Id, p.GetGainedExperience(), p.Experience);
                 ResultsList.Add(result);
                 order++;
             }
